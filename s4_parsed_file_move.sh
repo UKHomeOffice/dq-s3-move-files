@@ -14,7 +14,7 @@ FILE_LIMIT=100
 
 # List items from S3
 function get_list_new {
-  array=$(s3cmd ls --limit $FILE_LIMIT s3://$S3_BUCKET_NAME/$SOURCE_PATH/ | awk '{$1=$2=$3=""; print $0}' | sed 's_s3://s3-dq-test/yel-1385-src/__' | sed 's/^[ \t]*//')
+  array=$(s3cmd ls --limit $FILE_LIMIT s3://$S3_BUCKET_NAME/$SOURCE_PATH/ | awk '{$1=$2=$3=""; print $0}' | sed 's_s3://bucket_name/src/__' | sed 's/^[ \t]*//')
   echo $array
 }
 
