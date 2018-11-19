@@ -8,7 +8,7 @@ set -e
 
 S3_BUCKET_NAME=bucket_name
 SOURCE_PATH=src
-DESTINATION_PATH=src
+DESTINATION_PATH=dest
 REGEX='PARSED_[0-9]{8}_[0-9]{4}_[0-9]{4}.zip'
 FILE_LIMIT=100
 
