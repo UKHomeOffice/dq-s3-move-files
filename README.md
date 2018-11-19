@@ -1,7 +1,7 @@
 # dq-s3-move-files
 
 Bash script that moves files between key prefixes in S3.
-It created key prefixes based on the timestamp found in the file name.
+It creates key prefixes based on the timestamp found in the file name.
 
 # Dependencies:
  - aws cli
