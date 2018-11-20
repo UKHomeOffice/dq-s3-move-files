@@ -27,7 +27,7 @@ function move_files {
         MONTH=$(echo "${file:11:2}")
         DAY=$(echo "${file:13:2}")
         s3cmd mv --no-progress --rexclude ".*"  --rinclude $REGEX s3://$S3_BUCKET_NAME/$SOURCE_PATH/${file} s3://$S3_BUCKET_NAME/$DESTINATION_PATH/$YEAR/$MONTH/$DAY/${file} || continue
-        echo "Copied file to S3 '${file}'"
+        echo "Move file to S3 '${file}'"
   done
 }
 
