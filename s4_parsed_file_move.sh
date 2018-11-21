@@ -11,7 +11,6 @@ SOURCE_PATH=src
 DESTINATION_PATH=dest
 REGEX='PARSED_[0-9]{8}_[0-9]{4}_[0-9]{4}.zip'
 FILE_LIMIT=100
-TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
 # List items from S3
 function get_list_new {
@@ -23,12 +22,12 @@ function get_list_new {
 function move_files {
   declare -a array=$(get_list_new)
   for file in ${array[@]}; do
-        echo "$TIMESTAMP File found '${file}'"
+        echo "$(date "+%Y-%m-%d %H:%M:%S") File found '${file}'"
         YEAR=$(echo "${file:7:4}")
         MONTH=$(echo "${file:11:2}")
         DAY=$(echo "${file:13:2}")
         s3cmd mv --no-progress --rexclude ".*"  --rinclude $REGEX s3://$S3_BUCKET_NAME/$SOURCE_PATH/${file} s3://$S3_BUCKET_NAME/$DESTINATION_PATH/$YEAR/$MONTH/$DAY/${file} || continue
-        echo "$TIMESTAMP Moved file to S3 '${file}'"
+        echo "$(date "+%Y-%m-%d %H:%M:%S") Moved file to S3 '${file}'"
   done
 }
 
