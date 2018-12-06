@@ -14,7 +14,8 @@ It creates key prefixes based on the timestamp found in the file name.
 
 # Variables:
 
-||Variable Name||Value||Usage||
+|Variable Name|Value|Usage|
+| ------------- |:-------------:| -----:|
 |S3_BUCKET_NAME|bucket_name|Working S3 bucket|
 |SOURCE_PATH|src|Bucket source prefix|
 |DESTINATION_PATH|src|Bucket destination prefix|
